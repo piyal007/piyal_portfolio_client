@@ -13,19 +13,19 @@ const Footer = () => {
 
                     {/* Social Links */}
                     <div className="flex gap-4">
-                        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"
+                        <a href="https://github.com/piyal007" target="_blank" rel="noopener noreferrer"
                            className="p-2 hover:text-[#FF3D00] transition-colors">
                             <Github size={20} />
                         </a>
-                        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.linkedin.com/in/piyal-islam" target="_blank" rel="noopener noreferrer"
                            className="p-2 hover:text-[#FF3D00] transition-colors">
                             <Linkedin size={20} />
                         </a>
-                        <a href="https://facebook.com/yourusername" target="_blank" rel="noopener noreferrer"
+                        <a href="https://facebook.com/piyal.islam.666" target="_blank" rel="noopener noreferrer"
                            className="p-2 hover:text-[#FF3D00] transition-colors">
                             <Facebook size={20} />
                         </a>
-                        <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer"
+                        <a href="https://x.com/piyal_sha" target="_blank" rel="noopener noreferrer"
                            className="p-2 hover:text-[#FF3D00] transition-colors">
                             <Twitter size={20} />
                         </a>

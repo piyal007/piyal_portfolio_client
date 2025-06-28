@@ -4,33 +4,33 @@ import { Github, Linkedin, Facebook, Twitter, Download } from 'lucide-react';
 const Hero = () => {
     return (
         <section id="home" className="min-h-screen flex items-center justify-center py-16 lg:py-0">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-6">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
                     {/* Left side: Text content - Order 2 on mobile, Order 1 on desktop */}
                     <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
                         <h1 className="text-4xl lg:text-6xl font-bold mb-4">
                             Hi, I'm <span className="text-[#FF3D00]">Piyal Islam</span>
                         </h1>
-                        <h2 className="text-2xl lg:text-3xl mb-6">Full Stack Developer</h2>
+                        <h2 className="text-2xl lg:text-3xl mb-6">MERN Stack Developer</h2>
                         <p className="text-gray-300 mb-8 text-lg">
                             Passionate about creating elegant solutions and turning ideas into reality through code.
                         </p>
                         
                         {/* Social Links */}
                         <div className="flex justify-center lg:justify-start gap-4 mb-8">
-                            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"
+                            <a href="https://github.com/piyal007" target="_blank" rel="noopener noreferrer"
                                className="p-2 hover:text-[#FF3D00] transition-colors">
                                 <Github size={24} />
                             </a>
-                            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"
+                            <a href="https://www.linkedin.com/in/piyal-islam" target="_blank" rel="noopener noreferrer"
                                className="p-2 hover:text-[#FF3D00] transition-colors">
                                 <Linkedin size={24} />
                             </a>
-                            <a href="https://facebook.com/yourusername" target="_blank" rel="noopener noreferrer"
+                            <a href="https://facebook.com/piyal.islam.666" target="_blank" rel="noopener noreferrer"
                                className="p-2 hover:text-[#FF3D00] transition-colors">
                                 <Facebook size={24} />
                             </a>
-                            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer"
+                            <a href="https://x.com/piyal_sha" target="_blank" rel="noopener noreferrer"
                                className="p-2 hover:text-[#FF3D00] transition-colors">
                                 <Twitter size={24} />
                             </a>

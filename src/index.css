@@ -20,129 +20,23 @@ body {
 }
 
 /* Loading Spinner */
-.loader {
-  animation: rotate 1s infinite;
-  height: 50px;
-  width: 50px;
-  position: relative;
-}
-
-.loader:before,
-.loader:after {
-  border-radius: 50%;
-  content: "";
-  display: block;
-  height: 20px;
-  width: 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.loader:before {
-  animation: ball1 1s infinite;
-  background-color: #fff;
-  box-shadow: 30px 0 0 #ff3d00;
-  margin-bottom: 10px;
-}
-
-.loader:after {
-  animation: ball2 1s infinite;
-  background-color: #ff3d00;
-  box-shadow: 30px 0 0 #fff;
-}
-
-/* Size variants */
-.loader.h-6 {
-  height: 24px;
-  width: 24px;
-}
-
-.loader.h-6:before,
-.loader.h-6:after {
-  height: 8px;
-  width: 8px;
-}
-
-.loader.h-6:before {
-  box-shadow: 16px 0 0 #ff3d00;
-}
-
-.loader.h-6:after {
-  box-shadow: 16px 0 0 #fff;
-}
-
-.loader.h-12 {
-  height: 48px;
+.custom_loader {
   width: 48px;
+  height: 48px;
+  border: 5px solid;
+  border-color: #FF3D00 transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
 }
 
-.loader.h-12:before,
-.loader.h-12:after {
-  height: 16px;
-  width: 16px;
-}
-
-.loader.h-12:before {
-  box-shadow: 24px 0 0 #ff3d00;
-}
-
-.loader.h-12:after {
-  box-shadow: 24px 0 0 #fff;
-}
-
-.loader.h-16 {
-  height: 64px;
-  width: 64px;
-}
-
-.loader.h-16:before,
-.loader.h-16:after {
-  height: 20px;
-  width: 20px;
-}
-
-.loader.h-16:before {
-  box-shadow: 32px 0 0 #ff3d00;
-}
-
-.loader.h-16:after {
-  box-shadow: 32px 0 0 #fff;
-}
-
-@keyframes rotate {
-  0% { transform: rotate(0deg) scale(0.8) }
-  50% { transform: rotate(360deg) scale(1.2) }
-  100% { transform: rotate(720deg) scale(0.8) }
-}
-
-@keyframes ball1 {
+@keyframes rotation {
   0% {
-    box-shadow: 30px 0 0 #ff3d00;
-  }
-  50% {
-    box-shadow: 0 0 0 #ff3d00;
-    margin-bottom: 0;
-    transform: translate(15px, 15px);
+    transform: rotate(0deg);
   }
   100% {
-    box-shadow: 30px 0 0 #ff3d00;
-    margin-bottom: 10px;
+    transform: rotate(360deg);
   }
-}
-
-@keyframes ball2 {
-  0% {
-    box-shadow: 30px 0 0 #fff;
-  }
-  50% {
-    box-shadow: 0 0 0 #fff;
-    margin-top: -20px;
-    transform: translate(15px, 15px);
-  }
-  100% {
-    box-shadow: 30px 0 0 #fff;
-    margin-top: 0;
-  }
-}
+} 
 /* Loading Spinner end*/
