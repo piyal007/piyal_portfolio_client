@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 
-const sectionIds = ["home", "about", "projects", "contact"];
+const sectionIds = ["home", "about", "skills", "projects", "contact"];
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -96,6 +96,16 @@ const Navbar = () => {
             </li>
             <li>
               <a
+                href="#skills"
+                className={
+                  activeSection === "skills" ? "text-[#FF3D00] font-bold" : ""
+                }
+              >
+                Skills
+              </a>
+            </li>
+            <li>
+              <a
                 href="#projects"
                 className={
                   activeSection === "projects" ? "text-[#FF3D00] font-bold" : ""
@@ -145,6 +155,17 @@ const Navbar = () => {
                   }
                 >
                   About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#skills"
+                  onClick={handleMobileMenuClick("skills")}
+                  className={
+                    activeSection === "skills" ? "text-[#FF3D00] font-bold" : ""
+                  }
+                >
+                  Skills
                 </a>
               </li>
               <li>

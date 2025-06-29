@@ -1,5 +1,7 @@
 import React from "react";
-import { Github, Linkedin, Twitter, FileUser, Handshake } from "lucide-react";
+import { Github, Linkedin, Twitter, FileUser, Handshake, Copy, Check } from "lucide-react";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
+import toast from 'react-hot-toast';
 
 // Discord Icon Component
 const DiscordIcon = ({ size = 24 }) => (
@@ -28,12 +30,29 @@ const WhatsAppIcon = ({ size = 24 }) => (
 );
 
 const Hero = () => {
+  const heroRef = useDocumentTitle('Piyal Islam | MERN Stack Developer', {
+    enableIntersectionObserver: true,
+    threshold: 0.3
+  });
+  
+  // Copy to clipboard function
+  const copyToClipboard = async (text, label) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      toast.success(`${label} copied to clipboard!`);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+      toast.error('Failed to copy to clipboard');
+    }
+  };
+  
   return (
     <section
+      ref={heroRef}
       id="home"
       className="min-h-screen flex items-center justify-center py-16 lg:py-0"
     >
-      <div className="container mx-auto px-6">
+      <div className="w-11/12 mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
           {/* Left side: Text content - Order 2 on mobile, Order 1 on desktop */}
           <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
@@ -48,74 +67,113 @@ const Hero = () => {
 
             {/* Social Links */}
             <div className="flex justify-center lg:justify-start gap-4 mb-8">
-              <a
-                href="https://github.com/piyal007"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 hover:text-[#FF3D00] transition-colors"
-              >
-                <Github size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/piyal-islam"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 hover:text-[#FF3D00] transition-colors"
-              >
-                <Linkedin size={24} />
-              </a>
-              <a
-                href="https://wa.me/8801956475904"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 hover:text-[#FF3D00] transition-colors"
-                onClick={() => {
-                  // Try to open WhatsApp app first, fallback to web if app not installed
-                  const appUrl = `whatsapp://send?phone=8801956475904`;
-                  const webUrl = `https://wa.me/8801956475904`;
-                  
-                  // Set a timeout to redirect to web if app doesn't open
-                  const timeout = setTimeout(() => {
-                    window.open(webUrl, '_blank');
-                  }, 1000);
-                  
-                  // Try to open WhatsApp app
-                  window.location.href = appUrl;
-                  
-                  // Clear timeout after 1 second
-                  setTimeout(() => {
-                    clearTimeout(timeout);
-                  }, 1000);
-                }}
-              >
-                <WhatsAppIcon size={24} />
-              </a>
-              <a
-                href="discord://discord.com/users/913853601749819462"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 hover:text-[#FF3D00] transition-colors"
-                onClick={() => {
-                  // Try to open Discord app first, fallback to web if app not installed
-                  const appUrl = `discord://discord.com/users/913853601749819462`;
-                  const webUrl = `https://discord.com/users/913853601749819462`;
-                  
-                  // Set a timeout to redirect to web if app doesn't open
-                  const timeout = setTimeout(() => {
-                    window.open(webUrl, '_blank');
-                  }, 1000);
-                  
-                  // Try to open Discord app
-                  window.location.href = appUrl;
-                  
-                  // Clear timeout after 1 second
-                  setTimeout(() => {
-                    clearTimeout(timeout);
-                  }, 1000);
-                }}
-              >
-                <DiscordIcon size={24} />
-              </a>
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://github.com/piyal007"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 hover:text-[#FF3D00] transition-colors"
+                >
+                  <Github size={24} />
+                </a>
+                <button
+                  onClick={() => copyToClipboard('https://github.com/piyal007', 'GitHub profile')}
+                  className="p-1 hover:bg-gray-700 rounded transition-colors"
+                  title="Copy GitHub profile"
+                >
+                  <Copy size={14} className="text-gray-400 hover:text-[#FF3D00]" />
+                </button>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://www.linkedin.com/in/piyal-islam"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 hover:text-[#FF3D00] transition-colors"
+                >
+                  <Linkedin size={24} />
+                </a>
+                <button
+                  onClick={() => copyToClipboard('https://www.linkedin.com/in/piyal-islam', 'LinkedIn profile')}
+                  className="p-1 hover:bg-gray-700 rounded transition-colors"
+                  title="Copy LinkedIn profile"
+                >
+                  <Copy size={14} className="text-gray-400 hover:text-[#FF3D00]" />
+                </button>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://wa.me/8801956475904"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 hover:text-[#FF3D00] transition-colors"
+                  onClick={() => {
+                    // Try to open WhatsApp app first, fallback to web if app not installed
+                    const appUrl = `whatsapp://send?phone=8801956475904`;
+                    const webUrl = `https://wa.me/8801956475904`;
+                    
+                    // Set a timeout to redirect to web if app doesn't open
+                    const timeout = setTimeout(() => {
+                      window.open(webUrl, '_blank');
+                    }, 1000);
+                    
+                    // Try to open WhatsApp app
+                    window.location.href = appUrl;
+                    
+                    // Clear timeout after 1 second
+                    setTimeout(() => {
+                      clearTimeout(timeout);
+                    }, 1000);
+                  }}
+                >
+                  <WhatsAppIcon size={24} />
+                </a>
+                <button
+                  onClick={() => copyToClipboard('+880 1956-475904', 'WhatsApp number')}
+                  className="p-1 hover:bg-gray-700 rounded transition-colors"
+                  title="Copy WhatsApp number"
+                >
+                  <Copy size={14} className="text-gray-400 hover:text-[#FF3D00]" />
+                </button>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <a
+                  href="discord://discord.com/users/913853601749819462"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 hover:text-[#FF3D00] transition-colors"
+                  onClick={() => {
+                    // Try to open Discord app first, fallback to web if app not installed
+                    const appUrl = `discord://discord.com/users/913853601749819462`;
+                    const webUrl = `https://discord.com/users/913853601749819462`;
+                    
+                    // Set a timeout to redirect to web if app doesn't open
+                    const timeout = setTimeout(() => {
+                      window.open(webUrl, '_blank');
+                    }, 1000);
+                    
+                    // Try to open Discord app
+                    window.location.href = appUrl;
+                    
+                    // Clear timeout after 1 second
+                    setTimeout(() => {
+                      clearTimeout(timeout);
+                    }, 1000);
+                  }}
+                >
+                  <DiscordIcon size={24} />
+                </a>
+                <button
+                  onClick={() => copyToClipboard('913853601749819462', 'Discord ID')}
+                  className="p-1 hover:bg-gray-700 rounded transition-colors"
+                  title="Copy Discord ID"
+                >
+                  <Copy size={14} className="text-gray-400 hover:text-[#FF3D00]" />
+                </button>
+              </div>
             </div>
 
             <div className="flex justify-center md:justify-start gap-6">
@@ -147,8 +205,8 @@ const Hero = () => {
           <div className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="w-64 h-64 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#FF3D00] shadow-lg">
               <img
-                src="https://placehold.co/400x400/FF3D00/ffffff?text=Your+Photo"
-                alt="Profile"
+                src="https://i.postimg.cc/MpvjZg6N/Chat-GPT-Image-Jun-29-2025-10-47-19-AM.png"
+                alt="Young Male Developer"
                 className="w-full h-full object-cover"
               />
             </div>

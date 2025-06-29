@@ -4,7 +4,7 @@ import { Github, Linkedin, Facebook, Twitter, Heart } from 'lucide-react';
 const Footer = () => {
     return (
         <footer className="bg-gray-900/80 py-8">
-            <div className="container mx-auto px-4">
+            <div className="w-11/12 mx-auto">
                 <div className="flex flex-col items-center space-y-6">
                     {/* Logo */}
                     <h2 className="rancho uppercase font-bold text-2xl text-[#FF3D00]">

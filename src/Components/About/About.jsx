@@ -1,10 +1,20 @@
 import React from 'react';
 import { Code2, Palette, Gamepad2 } from 'lucide-react';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const About = () => {
+    const aboutRef = useDocumentTitle('About Me | Piyal Islam', {
+        enableIntersectionObserver: true,
+        threshold: 0.3
+    });
+    
     return (
-        <section id="about" className="py-20 bg-gray-900/50">
-            <div className="container mx-auto px-6">
+        <section 
+            ref={aboutRef}
+            id="about" 
+            className="py-20 bg-gray-900/50"
+        >
+            <div className="w-11/12 mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-16">
                     About <span className="text-[#FF3D00]">Me</span>
                 </h2>

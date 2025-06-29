@@ -1,5 +1,6 @@
 import React from 'react';
 import { GraduationCap, Calendar } from 'lucide-react';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const educationData = [
     {
@@ -17,9 +18,17 @@ const educationData = [
 ];
 
 const Education = () => {
+    const educationRef = useDocumentTitle('Education & Background | Piyal Islam', {
+        enableIntersectionObserver: true,
+        threshold: 0.3
+    });
+    
     return (
-        <section className="py-20 bg-gray-900/50">
-            <div className="container mx-auto px-6">
+        <section 
+            ref={educationRef}
+            className="py-20 bg-gray-900/50"
+        >
+            <div className="w-11/12 mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-16">
                     My <span className="text-[#FF3D00]">Education</span>
                 </h2>

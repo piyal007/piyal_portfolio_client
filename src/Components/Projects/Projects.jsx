@@ -1,5 +1,7 @@
 import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Copy } from 'lucide-react';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
+import toast from 'react-hot-toast';
 
 const projectsData = [
     {
@@ -29,9 +31,29 @@ const projectsData = [
 ];
 
 const Projects = () => {
+    const projectsRef = useDocumentTitle('Projects | Piyal Islam', {
+        enableIntersectionObserver: true,
+        threshold: 0.3
+    });
+
+    // Copy to clipboard function
+    const copyToClipboard = async (text, label) => {
+        try {
+            await navigator.clipboard.writeText(text);
+            toast.success(`${label} copied to clipboard!`);
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+            toast.error('Failed to copy to clipboard');
+        }
+    };
+    
     return (
-        <section id="projects" className="py-20">
-            <div className="container mx-auto px-6">
+        <section 
+            ref={projectsRef}
+            id="projects" 
+            className="py-20"
+        >
+            <div className="w-11/12 mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-16">
                     My <span className="text-[#FF3D00]">Projects</span>
                 </h2>
@@ -67,24 +89,43 @@ const Projects = () => {
                                 
                                 {/* Links */}
                                 <div className="flex gap-4">
-                                    <a 
-                                        href={project.liveLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-white hover:text-[#FF3D00] transition-colors"
-                                    >
-                                        <ExternalLink size={20} />
-                                        Live Demo
-                                    </a>
-                                    <a 
-                                        href={project.githubLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-white hover:text-[#FF3D00] transition-colors"
-                                    >
-                                        <Github size={20} />
-                                        Source Code
-                                    </a>
+                                    <div className="flex items-center gap-2">
+                                        <a 
+                                            href={project.liveLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 text-white hover:text-[#FF3D00] transition-colors"
+                                        >
+                                            <ExternalLink size={20} />
+                                            Live Demo
+                                        </a>
+                                        <button
+                                            onClick={() => copyToClipboard(project.liveLink, 'Live demo link')}
+                                            className="p-1 hover:bg-gray-700 rounded transition-colors"
+                                            title="Copy live demo link"
+                                        >
+                                            <Copy size={14} className="text-gray-400 hover:text-[#FF3D00]" />
+                                        </button>
+                                    </div>
+                                    
+                                    <div className="flex items-center gap-2">
+                                        <a 
+                                            href={project.githubLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 text-white hover:text-[#FF3D00] transition-colors"
+                                        >
+                                            <Github size={20} />
+                                            Source Code
+                                        </a>
+                                        <button
+                                            onClick={() => copyToClipboard(project.githubLink, 'Source code link')}
+                                            className="p-1 hover:bg-gray-700 rounded transition-colors"
+                                            title="Copy source code link"
+                                        >
+                                            <Copy size={14} className="text-gray-400 hover:text-[#FF3D00]" />
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

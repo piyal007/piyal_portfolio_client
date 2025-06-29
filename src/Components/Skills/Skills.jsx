@@ -1,4 +1,5 @@
 import React from 'react';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const skillsData = {
     Frontend: [
@@ -40,9 +41,18 @@ const SkillBar = ({ name, level }) => {
 };
 
 const Skills = () => {
+    const skillsRef = useDocumentTitle('Skills & Expertise | Piyal Islam', {
+        enableIntersectionObserver: true,
+        threshold: 0.3
+    });
+    
     return (
-        <section className="py-20">
-            <div className="container mx-auto px-6">
+        <section 
+            ref={skillsRef}
+            id="skills" 
+            className="py-20"
+        >
+            <div className="w-11/12 mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-16">
                     My <span className="text-[#FF3D00]">Skills</span>
                 </h2>

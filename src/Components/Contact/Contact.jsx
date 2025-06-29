@@ -2,8 +2,15 @@ import React, { useState, useRef } from 'react';
 import { Phone, Mail, MessageSquare, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
+import CopyToClipboard from '../CopyToClipboard/CopyToClipboard';
 
 const Contact = () => {
+    const contactRef = useDocumentTitle('Contact Me | Piyal Islam', {
+        enableIntersectionObserver: true,
+        threshold: 0.3
+    });
+    
     const formRef = useRef();
     const [formData, setFormData] = useState({
         name: '',
@@ -81,13 +88,17 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-20 bg-gray-900/50">
-            <div className="container mx-auto px-4">
+        <section 
+            ref={contactRef}
+            id="contact" 
+            className="py-20 bg-gray-900/50"
+        >
+            <div className="w-11/12 mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-16">
                     Contact <span className="text-[#FF3D00]">Me</span>
                 </h2>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto items-center">
                     {/* Contact Information */}
                     <div className="space-y-8">
                         <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
@@ -98,30 +109,33 @@ const Contact = () => {
                                 <div className="p-3 bg-[#FF3D00] rounded-lg">
                                     <Phone size={24} />
                                 </div>
-                                <div>
+                                <div className="flex-1">
                                     <h4 className="text-lg font-medium">Phone</h4>
                                     <p className="text-gray-300">+880 1956-475904</p>
                                 </div>
+                                <CopyToClipboard text="+880 1956-475904" />
                             </div>
 
                             <div className="flex items-center gap-4">
                                 <div className="p-3 bg-[#FF3D00] rounded-lg">
                                     <Mail size={24} />
                                 </div>
-                                <div>
+                                <div className="flex-1">
                                     <h4 className="text-lg font-medium">Email</h4>
                                     <p className="text-gray-300">piyalsha007@gmail.com</p>
                                 </div>
+                                <CopyToClipboard text="piyalsha007@gmail.com" />
                             </div>
 
                             <div className="flex items-center gap-4">
                                 <div className="p-3 bg-[#FF3D00] rounded-lg">
                                     <MessageSquare size={24} />
                                 </div>
-                                <div>
+                                <div className="flex-1">
                                     <h4 className="text-lg font-medium">WhatsApp</h4>
                                     <p className="text-gray-300">+880 1956-475904</p>
                                 </div>
+                                <CopyToClipboard text="+880 1956-475904" />
                             </div>
                         </div>
                     </div>
