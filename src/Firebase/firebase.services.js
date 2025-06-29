@@ -29,12 +29,12 @@ import {
   getDownloadURL, 
   deleteObject 
 } from "firebase/storage";
-import { app } from "./firebase.config";
+import firebaseConfig from "./firebase.config";
 
 // Initialize Firebase services
-const auth = getAuth(app);
-const db = getFirestore(app);
-const storage = getStorage(app);
+const auth = getAuth(firebaseConfig.app);
+const db = getFirestore(firebaseConfig.app);
+const storage = getStorage(firebaseConfig.app);
 
 // Authentication services
 export const authServices = {
