@@ -76,13 +76,6 @@ const Hero = () => {
                 >
                   <Github size={24} />
                 </a>
-                <button
-                  onClick={() => copyToClipboard('https://github.com/piyal007', 'GitHub profile')}
-                  className="p-1 hover:bg-gray-700 rounded transition-colors"
-                  title="Copy GitHub profile"
-                >
-                  <Copy size={14} className="text-gray-400 hover:text-[#FF3D00]" />
-                </button>
               </div>
               
               <div className="flex items-center gap-2">
@@ -94,13 +87,6 @@ const Hero = () => {
                 >
                   <Linkedin size={24} />
                 </a>
-                <button
-                  onClick={() => copyToClipboard('https://www.linkedin.com/in/piyal-islam', 'LinkedIn profile')}
-                  className="p-1 hover:bg-gray-700 rounded transition-colors"
-                  title="Copy LinkedIn profile"
-                >
-                  <Copy size={14} className="text-gray-400 hover:text-[#FF3D00]" />
-                </button>
               </div>
               
               <div className="flex items-center gap-2">
@@ -130,13 +116,6 @@ const Hero = () => {
                 >
                   <WhatsAppIcon size={24} />
                 </a>
-                <button
-                  onClick={() => copyToClipboard('+880 1956-475904', 'WhatsApp number')}
-                  className="p-1 hover:bg-gray-700 rounded transition-colors"
-                  title="Copy WhatsApp number"
-                >
-                  <Copy size={14} className="text-gray-400 hover:text-[#FF3D00]" />
-                </button>
               </div>
               
               <div className="flex items-center gap-2">
@@ -166,13 +145,6 @@ const Hero = () => {
                 >
                   <DiscordIcon size={24} />
                 </a>
-                <button
-                  onClick={() => copyToClipboard('913853601749819462', 'Discord ID')}
-                  className="p-1 hover:bg-gray-700 rounded transition-colors"
-                  title="Copy Discord ID"
-                >
-                  <Copy size={14} className="text-gray-400 hover:text-[#FF3D00]" />
-                </button>
               </div>
             </div>
 
@@ -205,7 +177,7 @@ const Hero = () => {
           <div className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="w-64 h-64 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#FF3D00] shadow-lg">
               <img
-                src="https://i.postimg.cc/MpvjZg6N/Chat-GPT-Image-Jun-29-2025-10-47-19-AM.png"
+                src="https://i.postimg.cc/bN5T2D7R/image-removebg-preview-Edited.png"
                 alt="Young Male Developer"
                 className="w-full h-full object-cover"
               />

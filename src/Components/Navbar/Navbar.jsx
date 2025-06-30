@@ -60,7 +60,7 @@ const Navbar = () => {
         {/* Left: Logo */}
         <div>
           <h2 className="rancho uppercase font-bold text-xl md:text-3xl text-[#FF3D00]">
-            &lt;/ piyal islam &gt;
+            &lt; piyal islam /&gt;
           </h2>
         </div>
 

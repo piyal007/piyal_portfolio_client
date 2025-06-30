@@ -5,28 +5,28 @@ import toast from 'react-hot-toast';
 
 const projectsData = [
     {
-        name: 'Restaurant Management System',
-        image: 'https://placehold.co/600x400/FF3D00/ffffff?text=Restaurant+App',
-        description: 'A full-stack restaurant management application with order processing, menu management, and reservation system.',
+        name: 'Quicklance',
+        image: 'https://i.postimg.cc/NMNGjcK5/Screenshot-2025-06-30-120253.png',
+        description: 'A freelance marketplace website.',
         technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind CSS'],
-        liveLink: 'https://restaurant-app.demo',
-        githubLink: 'https://github.com/yourusername/restaurant-app'
+        liveLink: 'https://assignment-10-2e230.web.app/',
+        githubLink: 'https://github.com/piyal007/quicklancer'
     },
     {
-        name: 'E-Learning Platform',
-        image: 'https://placehold.co/600x400/FF3D00/ffffff?text=E-Learning+Platform',
-        description: 'An interactive e-learning platform with course management, video lectures, and progress tracking.',
+        name: 'Tradenest',
+        image: 'https://i.postimg.cc/cCpvdSzf/Screenshot-2025-06-30-122806.png',
+        description: 'A bulk trade related website.',
         technologies: ['React', 'Firebase', 'Tailwind CSS', 'Redux'],
-        liveLink: 'https://e-learning.demo',
-        githubLink: 'https://github.com/yourusername/e-learning'
+        liveLink: 'https://assignment-11-ec3c7.web.app/',
+        githubLink: 'https://github.com/piyal007/trade_nest'
     },
     {
-        name: 'Task Management App',
-        image: 'https://placehold.co/600x400/FF3D00/ffffff?text=Task+Management',
-        description: 'A collaborative task management application with real-time updates and team collaboration features.',
+        name: 'DocTalk',
+        image: 'https://i.postimg.cc/Mpv6KTRR/Screenshot-2025-06-30-123937.png',
+        description: 'An online doctor related website.',
         technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-        liveLink: 'https://task-app.demo',
-        githubLink: 'https://github.com/yourusername/task-app'
+        liveLink: 'https://p-assignment8.netlify.app/',
+        githubLink: 'https://github.com/piyal007/DocTalk'
     }
 ];
 
@@ -130,6 +130,16 @@ const Projects = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+                {/* See All Projects Button */}
+                <div className="flex justify-center mt-12">
+                    <a
+                        href="#" // Replace with your all-projects page or external portfolio link
+                        className="px-8 py-3 bg-[#FF3D00] text-white rounded-full font-semibold shadow-lg hover:bg-[#d63400] transition-colors duration-200"
+                        target='_blank'
+                    >
+                        View All Projects
+                    </a>
                 </div>
             </div>
         </section>

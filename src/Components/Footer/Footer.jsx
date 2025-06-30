@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="flex flex-col items-center space-y-6">
                     {/* Logo */}
                     <h2 className="rancho uppercase font-bold text-2xl text-[#FF3D00]">
-                        &lt;/ piyal islam &gt;
+                        &lt; piyal islam /&gt;
                     </h2>
 
                     {/* Social Links */}
