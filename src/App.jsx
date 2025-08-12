@@ -3,6 +3,7 @@ import { RouterProvider } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import router from './Routes/Routes';
 import CustomLoader from './Components/CustomLoader/CustomLoader';
+import BugWalker from './Components/BugWalker/BugWalker';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -45,6 +46,8 @@ const App = () => {
   return (
     <>
       <RouterProvider router={router} />
+      {/* Fun easter egg: a little bug walking around */}
+      <BugWalker speed={30} size={32} opacity={0.85} avoidRadius={140} />
       <Toaster 
         position="top-right"
         toastOptions={{
