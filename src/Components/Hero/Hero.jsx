@@ -2,7 +2,7 @@ import React from "react";
 import { Github, Linkedin, FileUser, Handshake } from "lucide-react";
 import { SiDevdotto, SiHashnode } from 'react-icons/si';
 import useDocumentTitle from "../../hooks/useDocumentTitle";
-import toast from 'react-hot-toast';
+// toast reserved for future interactions
 
 const Hero = () => {
   const heroRef = useDocumentTitle('Piyal Islam | Frontend Developer', {
@@ -10,16 +10,7 @@ const Hero = () => {
     threshold: 0.3
   });
   
-  // Copy to clipboard function
-  const copyToClipboard = async (text, label) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      toast.success(`${label} copied to clipboard!`);
-    } catch (err) {
-      console.error('Failed to copy text: ', err);
-      toast.error('Failed to copy to clipboard');
-    }
-  };
+  // (reserved) copy helper if needed in future
   
   return (
     <section

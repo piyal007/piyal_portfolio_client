@@ -30,14 +30,6 @@ const Footer = () => {
                            className="p-2 hover:text-[#FF3D00] transition-colors">
                             <SiHashnode size={20} />
                         </a>
-                        <a href="https://facebook.com/piyal.islam.666" target="_blank" rel="noopener noreferrer"
-                           className="p-2 hover:text-[#FF3D00] transition-colors">
-                            <Facebook size={20} />
-                        </a>
-                        <a href="https://x.com/piyal_sha" target="_blank" rel="noopener noreferrer"
-                           className="p-2 hover:text-[#FF3D00] transition-colors">
-                            <Twitter size={20} />
-                        </a>
                     </div>
 
                     {/* Copyright */}
