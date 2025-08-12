@@ -1,9 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Phone, Mail, MessageSquare, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import CopyToClipboard from '../CopyToClipboard/CopyToClipboard';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const Contact = () => {
     const contactRef = useDocumentTitle('Contact Me | Piyal Islam', {
@@ -19,6 +20,8 @@ const Contact = () => {
     });
     const [isLoading, setIsLoading] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [captchaToken, setCaptchaToken] = useState('');
+    const recaptchaRef = useRef(null);
 
     // EmailJS configuration
     const EMAILJS_CONFIG = {
@@ -35,6 +38,10 @@ const Contact = () => {
             [name]: value
         }));
     };
+
+    const onCaptchaChange = useCallback((token) => {
+        setCaptchaToken(token || '');
+    }, []);
 
     // Handle form submission
     const handleSubmit = async (e) => {
@@ -53,6 +60,11 @@ const Contact = () => {
             return;
         }
 
+        if (!captchaToken) {
+            toast.error('Please verify reCAPTCHA');
+            return;
+        }
+
         setIsLoading(true);
 
         try {
@@ -67,6 +79,8 @@ const Contact = () => {
                 toast.success('Message sent successfully! I\'ll get back to you soon.');
                 setIsSubmitted(true);
                 setFormData({ name: '', email: '', message: '' });
+                setCaptchaToken('');
+                recaptchaRef.current?.reset?.();
                 
                 // Reset submitted state after 3 seconds
                 setTimeout(() => {
@@ -238,6 +252,15 @@ const Contact = () => {
                                         required
                                         disabled={isLoading}
                                     ></textarea>
+                                </div>
+
+                                <div>
+                                    <ReCAPTCHA
+                                        ref={recaptchaRef}
+                                        sitekey="6Lcls6MrAAAAAK2irEbmdex5fPbOc47AsL15AJId"
+                                        theme="dark"
+                                        onChange={onCaptchaChange}
+                                    />
                                 </div>
 
                                 <button
