@@ -1,33 +1,47 @@
 import React from 'react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
+import {
+    SiHtml5,
+    SiCss3,
+    SiJavascript,
+    SiReact,
+    SiTailwindcss,
+    SiNodedotjs,
+    SiExpress,
+    SiMongodb,
+    SiGit,
+    SiFigma,
+    SiFirebase
+} from 'react-icons/si';
 
 const skillsData = {
     Frontend: [
-        { name: 'HTML5', level: 90 },
-        { name: 'CSS3', level: 85 },
-        { name: 'JavaScript', level: 85 },
-        { name: 'React.js', level: 80 },
-        { name: 'Tailwind CSS', level: 85 },
+        { name: 'HTML5', level: 90, icon: SiHtml5 },
+        { name: 'CSS3', level: 85, icon: SiCss3 },
+        { name: 'JavaScript', level: 85, icon: SiJavascript },
+        { name: 'React.js', level: 80, icon: SiReact },
+        { name: 'Tailwind CSS', level: 85, icon: SiTailwindcss },
     ],
     Backend: [
-        { name: 'Node.js', level: 75 },
-        { name: 'Express.js', level: 75 },
-        { name: 'MongoDB', level: 70 },
-        { name: 'RESTful APIs', level: 80 },
+        { name: 'Node.js', level: 75, icon: SiNodedotjs },
+        { name: 'Express.js', level: 75, icon: SiExpress },
+        { name: 'MongoDB', level: 70, icon: SiMongodb },
     ],
     Tools: [
-        { name: 'Git', level: 80 },
-        { name: 'VS Code', level: 85 },
-        { name: 'Figma', level: 70 },
-        { name: 'Firebase', level: 75 },
+        { name: 'Git', level: 80, icon: SiGit },
+        { name: 'Figma', level: 70, icon: SiFigma },
+        { name: 'Firebase', level: 75, icon: SiFirebase },
     ]
 };
 
-const SkillBar = ({ name, level }) => {
+const SkillBar = ({ name, level, Icon }) => {
     return (
         <div className="mb-6">
-            <div className="flex justify-between mb-2">
-                <span className="font-medium">{name}</span>
+            <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                    {Icon && <Icon className="text-[#FF3D00]" size={18} />}
+                    <span className="font-medium">{name}</span>
+                </div>
                 <span className="text-[#FF3D00]">{level}%</span>
             </div>
             <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
@@ -67,6 +81,7 @@ const Skills = () => {
                                         key={skill.name}
                                         name={skill.name}
                                         level={skill.level}
+                                        Icon={skill.icon}
                                     />
                                 ))}
                             </div>

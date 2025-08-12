@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, Linkedin, Facebook, Twitter, Heart } from 'lucide-react';
+import { SiDevdotto, SiHashnode } from 'react-icons/si';
 
 const Footer = () => {
     return (
@@ -20,6 +21,14 @@ const Footer = () => {
                         <a href="https://www.linkedin.com/in/piyal-islam" target="_blank" rel="noopener noreferrer"
                            className="p-2 hover:text-[#FF3D00] transition-colors">
                             <Linkedin size={20} />
+                        </a>
+                        <a href="https://dev.to/piyal007" target="_blank" rel="noopener noreferrer"
+                           className="p-2 hover:text-[#FF3D00] transition-colors">
+                            <SiDevdotto size={20} />
+                        </a>
+                        <a href="https://hashnode.com/@piyal007" target="_blank" rel="noopener noreferrer"
+                           className="p-2 hover:text-[#FF3D00] transition-colors">
+                            <SiHashnode size={20} />
                         </a>
                         <a href="https://facebook.com/piyal.islam.666" target="_blank" rel="noopener noreferrer"
                            className="p-2 hover:text-[#FF3D00] transition-colors">

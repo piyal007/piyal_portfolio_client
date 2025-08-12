@@ -111,9 +111,9 @@ const Contact = () => {
                                 </div>
                                 <div className="flex-1">
                                     <h4 className="text-lg font-medium">Phone</h4>
-                                    <p className="text-gray-300">+880 1956-475904</p>
+                                    <p className="text-gray-300">+8801956475904</p>
                                 </div>
-                                <CopyToClipboard text="+880 1956-475904" />
+                                <CopyToClipboard text="+8801956475904" />
                             </div>
 
                             <div className="flex items-center gap-4">
@@ -122,9 +122,9 @@ const Contact = () => {
                                 </div>
                                 <div className="flex-1">
                                     <h4 className="text-lg font-medium">Email</h4>
-                                    <p className="text-gray-300">piyalsha007@gmail.com</p>
+                                    <p className="text-gray-300">piyal.islam.dev@gmail.com</p>
                                 </div>
-                                <CopyToClipboard text="piyalsha007@gmail.com" />
+                                <CopyToClipboard text="piyal.islam.dev@gmail.com" />
                             </div>
 
                             <div className="flex items-center gap-4">
@@ -133,9 +133,9 @@ const Contact = () => {
                                 </div>
                                 <div className="flex-1">
                                     <h4 className="text-lg font-medium">WhatsApp</h4>
-                                    <p className="text-gray-300">+880 1956-475904</p>
+                                    <p className="text-gray-300">+8801956475904</p>
                                 </div>
-                                <CopyToClipboard text="+880 1956-475904" />
+                                <CopyToClipboard text="+8801956475904" />
                             </div>
                         </div>
                     </div>

@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layouts/Main";
 import Home from "../Pages/Home/Home";
 import Error from "../Pages/Error/Error";
+import ProjectDetails from "../Pages/ProjectDetails/ProjectDetails";
 
 const router = createBrowserRouter([
     {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />
+            },
+            {
+                path: 'projects/:slug',
+                element: <ProjectDetails />
             }
         ]
     },

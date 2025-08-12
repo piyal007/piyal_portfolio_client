@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code2, Palette, Gamepad2 } from 'lucide-react';
+import { Code2, Wrench, Gauge, Bug } from 'lucide-react';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const About = () => {
@@ -34,43 +34,37 @@ const About = () => {
                         </p>
                     </div>
                     
-                    {/* Right side: Interests */}
+                    {/* Right side: Programming Focus Areas */}
                     <div>
-                        <h3 className="text-2xl font-semibold mb-6">Beyond Coding</h3>
+                        <h3 className="text-2xl font-semibold mb-6">What I Focus On</h3>
                         <div className="space-y-6">
                             <div className="flex items-start gap-4">
                                 <div className="p-3 bg-[#FF3D00] rounded-lg">
                                     <Code2 size={24} />
                                 </div>
                                 <div>
-                                    <h4 className="text-xl font-medium mb-2">Technical Writing</h4>
-                                    <p className="text-gray-300">
-                                        I enjoy sharing my knowledge through technical blogs and documentation.
-                                    </p>
+                                    <h4 className="text-xl font-medium mb-2">Frontend Engineering</h4>
+                                    <p className="text-gray-300">Building accessible, responsive, and scalable UI with modern React patterns.</p>
                                 </div>
                             </div>
                             
                             <div className="flex items-start gap-4">
                                 <div className="p-3 bg-[#FF3D00] rounded-lg">
-                                    <Palette size={24} />
+                                    <Gauge size={24} />
                                 </div>
                                 <div>
-                                    <h4 className="text-xl font-medium mb-2">Digital Art</h4>
-                                    <p className="text-gray-300">
-                                        Creating digital artwork helps me maintain creativity in problem-solving.
-                                    </p>
+                                    <h4 className="text-xl font-medium mb-2">Performance & Accessibility</h4>
+                                    <p className="text-gray-300">Optimizing Core Web Vitals and ensuring inclusive, keyboard-friendly experiences.</p>
                                 </div>
                             </div>
                             
                             <div className="flex items-start gap-4">
                                 <div className="p-3 bg-[#FF3D00] rounded-lg">
-                                    <Gamepad2 size={24} />
+                                    <Wrench size={24} />
                                 </div>
                                 <div>
-                                    <h4 className="text-xl font-medium mb-2">Gaming</h4>
-                                    <p className="text-gray-300">
-                                        I'm an avid gamer who enjoys strategy and puzzle games in my free time.
-                                    </p>
+                                    <h4 className="text-xl font-medium mb-2">Testing & Quality</h4>
+                                    <p className="text-gray-300">Focusing on reliability with component testing, type-safety, and robust CI.</p>
                                 </div>
                             </div>
                         </div>
