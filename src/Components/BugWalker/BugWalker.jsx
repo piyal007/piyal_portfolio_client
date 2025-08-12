@@ -72,7 +72,7 @@ const AnimatedBug = ({ size = 28, color = '#FF3D00' }) => {
   );
 };
 
-const BugWalker = ({ speed = 70, size = 28, opacity = 0.9, avoidRadius = 160 }) => {
+const BugWalker = ({ speed = 70, size = 28, opacity = 0.9, avoidRadius = 320, showAvoidCircle = true }) => {
   const [pos, setPos] = useState(() => getRandomTarget());
   const [angle, setAngle] = useState(0);
   const x = useMotionValue(pos.x);
@@ -83,6 +83,8 @@ const BugWalker = ({ speed = 70, size = 28, opacity = 0.9, avoidRadius = 160 }) 
   const rafRef = useRef(0);
   const mouseRef = useRef({ x: -9999, y: -9999 });
   const lastTargetAtRef = useRef(0);
+  const fleeBoostUntilRef = useRef(0);
+  const [mousePos, setMousePos] = useState({ x: -9999, y: -9999 });
 
   useEffect(() => {
     const onResize = () => {
@@ -92,7 +94,9 @@ const BugWalker = ({ speed = 70, size = 28, opacity = 0.9, avoidRadius = 160 }) 
       targetRef.current = getRandomTarget();
     };
     const onMouse = (e) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY };
+      const p = { x: e.clientX, y: e.clientY };
+      mouseRef.current = p;
+      setMousePos(p);
     };
     window.addEventListener('resize', onResize);
     window.addEventListener('mousemove', onMouse);
@@ -115,22 +119,24 @@ const BugWalker = ({ speed = 70, size = 28, opacity = 0.9, avoidRadius = 160 }) 
       let dy = target.y - pos.y;
       let dist = Math.hypot(dx, dy);
 
-      // Mouse avoidance: if too close, flee opposite direction
+      // Mouse avoidance: if too close, flee far in the opposite direction
       const mx = mouseRef.current.x;
       const my = mouseRef.current.y;
       const mdx = pos.x - mx;
       const mdy = pos.y - my;
       const mdist = Math.hypot(mdx, mdy);
       if (mdist < avoidRadius) {
-        // New target a bit farther in the opposite direction
+        // New target much farther in the opposite direction (near edges)
         const ux = mdx / (mdist || 1);
         const uy = mdy / (mdist || 1);
-        const fleeDistance = avoidRadius * 1.4;
+        const fleeDistance = Math.max(getViewport().width, getViewport().height) * 0.75;
         target = {
           x: clamp(pos.x + ux * fleeDistance, 16, width - 16),
           y: clamp(pos.y + uy * fleeDistance, 16, height - 16),
         };
         targetRef.current = target;
+        // temporary sprint boost while fleeing
+        fleeBoostUntilRef.current = ts + 900;
         dx = target.x - pos.x;
         dy = target.y - pos.y;
         dist = Math.hypot(dx, dy);
@@ -146,7 +152,8 @@ const BugWalker = ({ speed = 70, size = 28, opacity = 0.9, avoidRadius = 160 }) 
         targetRef.current = next;
         lastTargetAtRef.current = ts;
       } else {
-        const clampedSpeed = Math.max(40, Math.min(speed, 140));
+        const boost = ts < fleeBoostUntilRef.current ? 2.2 : 1;
+        const clampedSpeed = Math.max(40, Math.min(speed, 160)) * boost;
         const vx = (dx / dist) * clampedSpeed;
         const vy = (dy / dist) * clampedSpeed;
         const nx = pos.x + vx * dt;

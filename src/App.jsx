@@ -47,7 +47,7 @@ const App = () => {
     <>
       <RouterProvider router={router} />
       {/* Fun easter egg: a little bug walking around */}
-      <BugWalker speed={30} size={32} opacity={0.85} avoidRadius={140} />
+      <BugWalker speed={30} size={32} opacity={0.85} avoidRadius={500} />
       <Toaster 
         position="top-right"
         toastOptions={{

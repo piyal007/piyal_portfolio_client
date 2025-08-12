@@ -103,39 +103,66 @@ const Contact = () => {
                     <div className="space-y-8">
                         <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
                         
-                        {/* Contact Details */}
-                        <div className="space-y-6">
-                            <div className="flex items-center gap-4">
-                                <div className="p-3 bg-[#FF3D00] rounded-lg">
+                        {/* Contact Details as horizontal, clickable cards */}
+                        <div className="space-y-4">
+                            {/* Phone Card */}
+                            <div
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => { window.location.href = 'tel:+8801956475904'; }}
+                                onKeyDown={(e) => { if (e.key === 'Enter') window.location.href = 'tel:+8801956475904'; }}
+                                className="group flex items-center gap-4 p-5 rounded-xl bg-gray-800/50 border border-white/10 hover:border-[#FF3D00]/50 cursor-pointer transition-colors"
+                            >
+                                <div className="p-3 bg-[#FF3D00] rounded-lg text-white">
                                     <Phone size={24} />
                                 </div>
                                 <div className="flex-1">
                                     <h4 className="text-lg font-medium">Phone</h4>
                                     <p className="text-gray-300">+8801956475904</p>
                                 </div>
-                                <CopyToClipboard text="+8801956475904" />
+                                <div className="flex items-center gap-2">
+                                    <CopyToClipboard text="+8801956475904" />
+                                </div>
                             </div>
 
-                            <div className="flex items-center gap-4">
-                                <div className="p-3 bg-[#FF3D00] rounded-lg">
+                            {/* Email Card */}
+                            <div
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => { window.location.href = 'mailto:piyal.islam.dev@gmail.com?subject=Hello%20Piyal&body=Hi%20Piyal%2C%20'; }}
+                                onKeyDown={(e) => { if (e.key === 'Enter') window.location.href = 'mailto:piyal.islam.dev@gmail.com?subject=Hello%20Piyal&body=Hi%20Piyal%2C%20'; }}
+                                className="group flex items-center gap-4 p-5 rounded-xl bg-gray-800/50 border border-white/10 hover:border-[#FF3D00]/50 cursor-pointer transition-colors"
+                            >
+                                <div className="p-3 bg-[#FF3D00] rounded-lg text-white">
                                     <Mail size={24} />
                                 </div>
                                 <div className="flex-1">
                                     <h4 className="text-lg font-medium">Email</h4>
                                     <p className="text-gray-300">piyal.islam.dev@gmail.com</p>
                                 </div>
-                                <CopyToClipboard text="piyal.islam.dev@gmail.com" />
+                                <div className="flex items-center gap-2">
+                                    <CopyToClipboard text="piyal.islam.dev@gmail.com" />
+                                </div>
                             </div>
 
-                            <div className="flex items-center gap-4">
-                                <div className="p-3 bg-[#FF3D00] rounded-lg">
+                            {/* WhatsApp Card */}
+                            <div
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => { window.open('https://wa.me/8801956475904', '_blank'); }}
+                                onKeyDown={(e) => { if (e.key === 'Enter') window.open('https://wa.me/8801956475904', '_blank'); }}
+                                className="group flex items-center gap-4 p-5 rounded-xl bg-gray-800/50 border border-white/10 hover:border-[#FF3D00]/50 cursor-pointer transition-colors"
+                            >
+                                <div className="p-3 bg-[#FF3D00] rounded-lg text-white">
                                     <MessageSquare size={24} />
                                 </div>
                                 <div className="flex-1">
                                     <h4 className="text-lg font-medium">WhatsApp</h4>
                                     <p className="text-gray-300">+8801956475904</p>
                                 </div>
-                                <CopyToClipboard text="+8801956475904" />
+                                <div className="flex items-center gap-2">
+                                    <CopyToClipboard text="+8801956475904" />
+                                </div>
                             </div>
                         </div>
                     </div>
