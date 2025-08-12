@@ -16,9 +16,15 @@ const Hero = () => {
     <section
       ref={heroRef}
       id="home"
-      className="min-h-screen flex items-center justify-center py-16 lg:py-0"
+      className="relative min-h-screen flex items-center justify-center py-16 lg:py-0"
+      style={{
+        backgroundImage: "url('/src/assets/hero.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
-      <div className="w-11/12 mx-auto">
+      <div className="absolute inset-0 bg-[#2c3e50]/90" aria-hidden="true"></div>
+      <div className="w-11/12 mx-auto relative">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
           {/* Left side: Text content - Order 2 on mobile, Order 1 on desktop */}
           <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
