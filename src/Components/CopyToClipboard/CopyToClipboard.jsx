@@ -5,7 +5,10 @@ import toast from 'react-hot-toast';
 const CopyToClipboard = ({ text, className = "" }) => {
     const [copied, setCopied] = useState(false);
 
-    const handleCopy = async () => {
+    const handleCopy = async (e) => {
+        // Prevent parent click handlers (like cards) from firing
+        e?.stopPropagation?.();
+        e?.preventDefault?.();
         try {
             await navigator.clipboard.writeText(text);
             setCopied(true);
@@ -24,6 +27,7 @@ const CopyToClipboard = ({ text, className = "" }) => {
     return (
         <button
             onClick={handleCopy}
+            onMouseDown={(e) => { e.stopPropagation(); }}
             className={`p-2 hover:bg-gray-700 rounded-lg transition-all duration-200 ${className}`}
             title="Copy to clipboard"
         >

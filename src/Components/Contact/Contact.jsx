@@ -120,7 +120,7 @@ const Contact = () => {
                                     <h4 className="text-lg font-medium">Phone</h4>
                                     <p className="text-gray-300">+8801956475904</p>
                                 </div>
-                                <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()} onMouseDown={(e) => e.stopPropagation()}>
                                     <CopyToClipboard text="+8801956475904" />
                                 </div>
                             </div>
@@ -140,7 +140,7 @@ const Contact = () => {
                                     <h4 className="text-lg font-medium">Email</h4>
                                     <p className="text-gray-300">piyal.islam.dev@gmail.com</p>
                                 </div>
-                                <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()} onMouseDown={(e) => e.stopPropagation()}>
                                     <CopyToClipboard text="piyal.islam.dev@gmail.com" />
                                 </div>
                             </div>
@@ -160,7 +160,7 @@ const Contact = () => {
                                     <h4 className="text-lg font-medium">WhatsApp</h4>
                                     <p className="text-gray-300">+8801956475904</p>
                                 </div>
-                                <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()} onMouseDown={(e) => e.stopPropagation()}>
                                     <CopyToClipboard text="+8801956475904" />
                                 </div>
                             </div>
